@@ -250,7 +250,7 @@ a:focus {
 .skills-track {
   display: flex;
   gap: 30px;
-  animation: scroll-left 5s linear infinite;
+  animation: scroll-left 20s linear infinite;
   padding: 0 10px;
 }
 
