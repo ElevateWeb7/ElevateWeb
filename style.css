@@ -3,20 +3,22 @@
   --primary: #4338CA;
   --primary-dark: #312E81;
   --accent: #111827;
-  --background: #F0F4FF;
+  --background: #F9FAFB;
   --surface: #FFFFFF;
-  --border: #E0E7FF;
+  --border: #D1D5DB;
 
   --font-primary: 'Poppins', sans-serif;
   --font-secondary: 'Roboto', sans-serif;
   --font-display: 'Raleway', sans-serif;
 
-  --radius: 12px;
-  --shadow: 0 8px 24px rgba(67, 56, 202, 0.15);
+  --radius: 14px;
+  --shadow: 0 8px 30px rgba(67, 56, 202, 0.12);
 }
 
 /* RESET */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -25,49 +27,58 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px; /* Consistent base font size */
 }
 
 body {
   font-family: var(--font-primary);
   background: var(--background);
   color: var(--accent);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 .container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 24px;
 }
 
 header {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px 60px;
+  user-select: none;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-size: clamp(2.75rem, 5vw, 3.5rem);
   font-family: var(--font-display);
   background: linear-gradient(90deg, var(--primary), var(--primary-dark));
   -webkit-background-clip: text;
   color: transparent;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
   font-family: var(--font-secondary);
   color: #4B5563;
-  margin-bottom: 30px;
+  margin-bottom: 36px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .button {
   background: var(--primary);
   color: #fff;
-  padding: 14px 28px;
+  padding: 14px 32px;
   border: none;
   border-radius: var(--radius);
   text-decoration: none;
@@ -75,25 +86,27 @@ h1 {
   display: inline-block;
   box-shadow: var(--shadow);
   cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
+  user-select: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button:hover,
 .button:focus {
   background: var(--primary-dark);
-  box-shadow: 0 0 10px var(--primary-dark);
+  box-shadow: 0 0 12px var(--primary-dark);
   outline: none;
 }
 
 .section {
-  padding: 60px 0;
+  padding: 70px 0;
   text-align: center;
 }
 
 .grid {
   display: grid;
-  gap: 30px;
-  margin-top: 30px;
+  gap: 36px;
+  margin-top: 40px;
 }
 
 @media (min-width: 768px) {
@@ -113,37 +126,43 @@ h1 {
   justify-content: center;
   align-items: stretch;
   flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 30px;
+  gap: 36px;
+  margin-top: 40px;
 }
 
 .team-grid .card {
-  width: 300px;
+  width: 320px;
 }
 
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 30px;
+  padding: 36px 28px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  user-select: none;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 28px rgba(67, 56, 202, 0.25);
+.card:hover,
+.card:focus-within {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 32px rgba(67, 56, 202, 0.2);
+  outline: none;
 }
 
 .card p {
   max-width: 280px;
   margin: 0 auto;
+  color: #4B5563;
+  font-size: 1rem;
 }
 
 h2 {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
-  margin-bottom: 20px;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  margin-bottom: 24px;
   font-family: var(--font-display);
   position: relative;
 }
@@ -151,24 +170,24 @@ h2 {
 h2::after {
   content: '';
   display: block;
-  width: 60px;
+  width: 64px;
   height: 4px;
   background: var(--primary);
-  margin: 12px auto 0;
+  margin: 14px auto 0;
   border-radius: 2px;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-  margin-bottom: 12px;
+  font-size: clamp(1.35rem, 3vw, 1.6rem);
+  margin-bottom: 14px;
   color: var(--primary-dark);
 }
 
 form {
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
   background: var(--surface);
-  padding: 30px;
+  padding: 40px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   text-align: left;
@@ -176,21 +195,23 @@ form {
 
 label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
 input,
 textarea {
   width: 100%;
-  padding: 12px 16px;
-  margin-bottom: 20px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
   font-family: var(--font-secondary);
   font-size: 1rem;
   background: #fff;
   color: var(--accent);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input::placeholder,
@@ -202,12 +223,12 @@ input:focus,
 textarea:focus {
   border-color: var(--primary);
   outline: none;
-  box-shadow: 0 0 5px var(--primary);
+  box-shadow: 0 0 6px var(--primary);
 }
 
 footer {
-  margin-top: 60px;
-  padding: 30px;
+  margin-top: 70px;
+  padding: 36px 20px;
   text-align: center;
   font-size: 0.95rem;
   border-top: 1px solid var(--border);
@@ -220,76 +241,37 @@ a:focus {
 }
 
 /* TECHNOLOGIES SCROLL SECTION */
+/* TECHNOLOGIES SCROLL SECTION */
 .skills-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 30px;
-  padding: 20px 0;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  justify-content: start;
-}
-
-.skill-item {
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-  text-align: center;
-}
-
-.skill-item img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.skill-item img:hover {
-  transform: scale(1.15);
-  box-shadow: 0 8px 20px rgba(67, 56, 202, 0.15);
-  border-color: var(--primary);
-}
-
-.skill-item span {
-  margin-top: 10px;
-  display: block;
-  font-size: 0.9rem;
-  font-family: var(--font-secondary);
-  color: #374151;
-}
-/* Additional styles for continuous horizontal scrolling of technologies */
-
-.skills-scroll {
-  overflow: hidden; /* Hide scrollbar */
+  overflow: hidden;
   position: relative;
+  padding: 20px 0;
+  width: 100%;
 }
 
 .skills-track {
   display: flex;
   gap: 30px;
-  animation: scroll-left 20s linear infinite;
-  padding-left: 10px;
-  padding-right: 10px;
+  animation: scroll-left 6s linear infinite;
+  padding: 0 0px;
+  width: max-content;
 }
 
 @keyframes scroll-left {
   0% {
-    transform: translateX(0);
+    transform: translateX(20);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
 .skill-item {
-  flex: 0 0 100px; /* Fixed width for perfect looping */
+  flex: 0 0 auto;
+  min-width: 100px;
   text-align: center;
+  cursor: default;
 }
-
-/* Optional: maintain your existing skill-item img styles */
 
 .skill-item img {
   width: 80px;
@@ -302,22 +284,54 @@ a:focus {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.skill-item img:hover {
+.skill-item img:hover,
+.skill-item img:focus {
   transform: scale(1.15);
   box-shadow: 0 8px 20px rgba(67, 56, 202, 0.15);
   border-color: var(--primary);
+  outline: none;
 }
 
 .skill-item span {
   margin-top: 10px;
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-family: var(--font-secondary);
   color: #374151;
+  user-select: none;
 }
 
+/* Responsive: reduce gap and size on smaller screens */
+@media (max-width: 768px) {
+  .skills-track {
+    gap: 20px;
+  }
+
+  .skill-item {
+    min-width: 80px;
+  }
+
+  .skill-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skill-item span {
+    font-size: 0.85rem;
+  }
+}
+
+/* Other styles */
 form .button {
-  display:block;
-  margin:0 auto;
+  display: block;
+  margin: 0 auto;
   font-family: var(--font-secondary);
+  font-size: 1rem;
+  padding: 14px 32px;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
