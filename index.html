@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="ElevateWeb builds modern, strategic websites with stunning design and robust development.">
+  <title>ElevateWeb - Strategic Website Creators</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@600;700&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <input type="checkbox" id="nav-toggle" hidden>
+  <header class="nav-header">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">🌙</button>
+    <div class="logo">ElevateWeb</div>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <nav class="nav">
+      <ul>
+        <li><a href="#" onclick="document.getElementById('nav-toggle').checked = false">Home</a></li>
+        <li><a href="#services" onclick="document.getElementById('nav-toggle').checked = false">Services</a></li>
+        <li><a href="#technologies" onclick="document.getElementById('nav-toggle').checked = false">Technologies</a></li>
+	<li><a href="#work" onclick="document.getElementById('nav-toggle').checked = false">Work</a></li>
+        <li><a href="#team" onclick="document.getElementById('nav-toggle').checked = false">Team</a></li>
+        <li><a href="#contact" onclick="document.getElementById('nav-toggle').checked = false">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <header>
+      <h1>ElevateWeb</h1>
+      <p class="subtitle">We design and build powerful websites that help modern businesses scale with clarity and creativity. From concept to code, Elevate Web ensures your online presence makes a lasting impression.</p>
+      <a href="#contact" class="button">Let's Work Together</a>
+    </header>
+
+    <section class="section" id="services">
+      <h2>Our Services</h2>
+      <p>We specialize in turning ideas into elegant, high-performing digital experiences tailored for your audience.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>UI/UX Design</h3>
+          <p>Visually engaging, user-first interface design that converts and delights users across all devices.</p>
+        </div>
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>We build robust sites using HTML, CSS, JavaScript, Python, and Django—secure, scalable, and fast.</p>
+        </div>
+        <div class="card">
+          <h3>Responsive Design</h3>
+          <p>Fully optimized layouts for mobile, tablet, and desktop with pixel-perfect precision.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="technologies">
+      <h2>Technologies We Use</h2><br><br>
+      <div class="skills-scroll">
+        <div class="skills-track">
+          <div class="skill-item" title="Bootstrap"><img src="bootstrap.jpg" alt="Bootstrap" /></div>
+          <div class="skill-item" title="CSS"><img src="css.png" alt="CSS" /></div>
+          <div class="skill-item" title="Django"><img src="django.png" alt="Django" /></div>
+          <div class="skill-item" title="Figma"><img src="figma.png" alt="Figma" /></div>
+          <div class="skill-item" title="HTML"><img src="html.png" alt="HTML" /></div>
+          <div class="skill-item" title="JavaScript"><img src="js.png" alt="JavaScript" /></div>
+          <div class="skill-item" title="Python"><img src="python.jpg" alt="Python" /></div>
+          <div class="skill-item" title="MySQL"><img src="mysql.png" alt="MySQL" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <h2>Our Work</h2><br>
+      <p>We collaborate with startups and growing businesses to launch fast, elegant, and high-performing websites. Check out some of our live projects.</p><br>
+      <a href="https://elevateweb7.github.io/Portfolio/" target="_blank" class="btn">View Portfolio</a>
+    </section>
+
+    <section class="section" id="team">
+      <h2>Meet the Team</h2>
+      <div class="team-grid">
+        <div class="card">
+          <h3>Yash Makwana</h3>
+          <p>Backend Developer<br><strong>Python | Django | APIs | Security</strong></p>
+        </div>
+        <div class="card">
+          <h3>Keyur Dudhatra</h3>
+          <p>UI/UX Designer<br><strong>Figma | Webflow | Prototyping | Branding</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Us</h2><br>
+      <p>Have a project in mind or want to say hello? We'd love to hear from you. Let's bring your digital vision to life together.</p><br><br>
+      <a href="mailto:elevateweb7@gmail.com?subject=Project%20Inquiry&body=Hi%20Elevate%20Web," class="btn">Send an Email</a>
+    </section>
+
+    <footer>
+       <p>&copy; 2025 <strong>ElevateWeb</strong>. Crafted with care by Yash & Keyur.</p>
+      <p>Follow us on 
+        <a href="https://www.instagram.com/_elevateweb/" target="_blank" rel="noopener noreferrer" aria-label="Instagram ElevateWeb">Instagram</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'light' || (!currentTheme && prefersDark)) {
+      document.body.classList.add('light-mode');
+      toggle.textContent = '🌙';
+    }
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggle.textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navToggle = document.getElementById("nav-toggle");
+      const navLinks = document.querySelectorAll(".nav a");
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+            navToggle.checked = false;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
